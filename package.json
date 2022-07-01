@@ -1,0 +1,36 @@
+{
+  "name": "pure_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubashirhussainkhadim/Pure-react-base17.2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mubashirhussainkhadim/Pure-react-base17.2/issues"
+  },
+  "homepage": "https://github.com/mubashirhussainkhadim/Pure-react-base17.2#readme",
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "parcel": "^2.2.1",
+    "prettier": "^2.5.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "browserslist": [
+    "last  2  Firefox versions"
+  ]
+}
