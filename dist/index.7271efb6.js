@@ -26908,6 +26908,8 @@ var _carousal = require("./Carousal");
 var _carousalDefault = parcelHelpers.interopDefault(_carousal);
 var _errorBoundry = require("./ErrorBoundry");
 var _errorBoundryDefault = parcelHelpers.interopDefault(_errorBoundry);
+var _modal = require("./Modal");
+var _modalDefault = parcelHelpers.interopDefault(_modal);
 var _themeContext = require("./ThemeContext");
 var _themeContextDefault = parcelHelpers.interopDefault(_themeContext);
 var _s = $RefreshSig$();
@@ -26925,8 +26927,12 @@ class Details extends (0, _react.Component) {
     constructor(...args){
         super(...args);
         _defineProperty(this, "state", {
-            loading: true
+            loading: true,
+            showModal: false
         });
+        _defineProperty(this, "toggelModal", ()=>this.setState({
+                showModal: !this.state.showModal
+            }));
     }
     async componentDidMount() {
         const response = await fetch(`http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`);
@@ -26941,11 +26947,11 @@ class Details extends (0, _react.Component) {
             children: "Loading ......."
         }, void 0, false, {
             fileName: "src/Details.js",
-            lineNumber: 29,
+            lineNumber: 35,
             columnNumber: 14
         }, this);
          // throw new Error ("lmo you are Crashed")
-        const { animal , breed , city , state , description , name , images  } = this.state;
+        const { animal , breed , city , state , description , name , images , showModal  } = this.state;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "details",
             children: [
@@ -26953,14 +26959,14 @@ class Details extends (0, _react.Component) {
                     images: images
                 }, void 0, false, {
                     fileName: "src/Details.js",
-                    lineNumber: 43,
+                    lineNumber: 50,
                     columnNumber: 14
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                     children: name
                 }, void 0, false, {
                     fileName: "src/Details.js",
-                    lineNumber: 44,
+                    lineNumber: 51,
                     columnNumber: 15
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -26975,11 +26981,12 @@ class Details extends (0, _react.Component) {
                     ]
                 }, void 0, true, {
                     fileName: "src/Details.js",
-                    lineNumber: 45,
+                    lineNumber: 52,
                     columnNumber: 15
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContextDefault.default).Consumer, {
                     children: ([theme])=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: this.toggelModal,
                             style: {
                                 backgroundColor: theme
                             },
@@ -26989,25 +26996,60 @@ class Details extends (0, _react.Component) {
                             ]
                         }, void 0, true, {
                             fileName: "src/Details.js",
-                            lineNumber: 47,
+                            lineNumber: 54,
                             columnNumber: 31
                         }, this)
                 }, void 0, false, {
                     fileName: "src/Details.js",
-                    lineNumber: 46,
+                    lineNumber: 53,
                     columnNumber: 15
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: description
                 }, void 0, false, {
                     fileName: "src/Details.js",
-                    lineNumber: 51,
+                    lineNumber: 58,
                     columnNumber: 15
-                }, this)
+                }, this),
+                showModal ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                            children: [
+                                "will you adopt ",
+                                name,
+                                "?"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Details.js",
+                            lineNumber: 60,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "https://bit.ly/pet-adopt",
+                            children: "Yes"
+                        }, void 0, false, {
+                            fileName: "src/Details.js",
+                            lineNumber: 61,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: this.toggelModal,
+                            children: "No"
+                        }, void 0, false, {
+                            fileName: "src/Details.js",
+                            lineNumber: 62,
+                            columnNumber: 25
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Details.js",
+                    lineNumber: 59,
+                    columnNumber: 28
+                }, this) : null
             ]
         }, void 0, true, {
             fileName: "src/Details.js",
-            lineNumber: 42,
+            lineNumber: 49,
             columnNumber: 12
         }, this);
     }
@@ -27022,14 +27064,14 @@ const WrappedDetails = ()=>{
                 params: params
             }, void 0, false, {
                 fileName: "src/Details.js",
-                lineNumber: 59,
+                lineNumber: 71,
                 columnNumber: 26
             }, undefined),
             ";"
         ]
     }, void 0, true, {
         fileName: "src/Details.js",
-        lineNumber: 59,
+        lineNumber: 71,
         columnNumber: 10
     }, undefined);
 };
@@ -27048,7 +27090,7 @@ $RefreshReg$(_c, "WrappedDetails");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./Carousal":"uFKQ9","./ErrorBoundry":"im16J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ThemeContext":"4b9qW"}],"uFKQ9":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./Carousal":"uFKQ9","./ErrorBoundry":"im16J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ThemeContext":"4b9qW","./Modal":"FKuaN"}],"uFKQ9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0640 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27212,6 +27254,48 @@ exports.default = ErrorBoundary;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","7Zeie","2kQhy"], "2kQhy", "parcelRequire13bd")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"FKuaN":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7f78 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7f78.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactDom = require("react-dom");
+var _s = $RefreshSig$();
+const Modal = ({ children  })=>{
+    _s();
+    const elRef = (0, _react.useRef)(null);
+    if (!elRef.current) elRef.current = document.createElement("div");
+    (0, _react.useEffect)(()=>{
+        const modalRoot = document.getElementById("modal");
+        modalRoot.appendChild(elRef.current);
+        return ()=>modalRoot.removeChild(elRef.current);
+    }, []);
+    return /*#__PURE__*/ (0, _reactDom.createPortal)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: children
+    }, void 0, false, {
+        fileName: "src/Modal.js",
+        lineNumber: 18,
+        columnNumber: 23
+    }, undefined), elRef.current);
+};
+_s(Modal, "uS4DrwVCzH44ayWi2jMWCV+OL1E=");
+_c = Modal;
+exports.default = Modal;
+var _c;
+$RefreshReg$(_c, "Modal");
+
+  $parcel$ReactRefreshHelpers$7f78.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","7Zeie","2kQhy"], "2kQhy", "parcelRequire13bd")
 
 //# sourceMappingURL=index.7271efb6.js.map

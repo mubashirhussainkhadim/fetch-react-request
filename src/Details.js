@@ -2,6 +2,7 @@ import {Component , useContext} from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousal";
 import ErrorBoundary from "./ErrorBoundry";
+import Modal from "./Modal";
 import ThemeContext from "./ThemeContext";
 class Details extends Component {
 
@@ -9,7 +10,7 @@ class Details extends Component {
     //     super();
     //     this.state = {loading : true}
     // }
-    state = { loading: true };
+    state = { loading: true , showModal: false};
     async componentDidMount() {
         const response = await fetch(
             `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
@@ -19,12 +20,13 @@ class Details extends Component {
              {loading: false , ...json.pets[0]}
             )
     }
+    toggelModal = () => this.setState({showModal: !this.state.showModal})
     render() {
         if (this.state.loading){
             return <h2>Loading .......</h2>
         }
         // throw new Error ("lmo you are Crashed")
-        const { animal, breed, city, state, description, name , images } = this.state;
+        const { animal, breed, city, state, description, name , images ,showModal} = this.state;
         return(
             <div className="details" >
              <Carousel images={images}/>
@@ -32,10 +34,18 @@ class Details extends Component {
               <h2>{animal} - {breed} - {city} , {state}</h2>
               <ThemeContext.Consumer>
                 {([theme])=>(
-                <button style={{backgroundColor: theme}} >Adopt {name}</button>
+                <button onClick={this.toggelModal} style={{backgroundColor: theme}} >Adopt {name}</button>
                 )}
               </ThemeContext.Consumer>
               <p>{description}</p>
+              {
+                showModal ? (
+                    <Modal>
+                        <h1>will you adopt {name}?</h1>
+                        <a href="https://bit.ly/pet-adopt">Yes</a>
+                        <button onClick={this.toggelModal}>No</button>
+                     </Modal>
+                ) : null }
             </div>
         )
     }
