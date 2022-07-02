@@ -51,7 +51,7 @@
     display: block;
     overflow: hidden;
     margin: 25px 0;
-    border-bottom: #333 2px solid;
+    border-bottom: #333 4px dotted;
   }
   
   .pet img {
