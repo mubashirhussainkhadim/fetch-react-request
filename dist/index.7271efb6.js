@@ -27024,20 +27024,29 @@ class Details extends (0, _react.Component) {
                             lineNumber: 60,
                             columnNumber: 25
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                            href: "https://bit.ly/pet-adopt",
-                            children: "Yes"
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "buttons",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    href: "https://bit.ly/pet-adopt",
+                                    children: "Yes"
+                                }, void 0, false, {
+                                    fileName: "src/Details.js",
+                                    lineNumber: 62,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: this.toggelModal,
+                                    children: "No"
+                                }, void 0, false, {
+                                    fileName: "src/Details.js",
+                                    lineNumber: 63,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/Details.js",
                             lineNumber: 61,
-                            columnNumber: 25
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: this.toggelModal,
-                            children: "No"
-                        }, void 0, false, {
-                            fileName: "src/Details.js",
-                            lineNumber: 62,
                             columnNumber: 25
                         }, this)
                     ]
@@ -27064,14 +27073,14 @@ const WrappedDetails = ()=>{
                 params: params
             }, void 0, false, {
                 fileName: "src/Details.js",
-                lineNumber: 71,
+                lineNumber: 73,
                 columnNumber: 26
             }, undefined),
             ";"
         ]
     }, void 0, true, {
         fileName: "src/Details.js",
-        lineNumber: 71,
+        lineNumber: 73,
         columnNumber: 10
     }, undefined);
 };

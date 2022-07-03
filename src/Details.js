@@ -42,8 +42,10 @@ class Details extends Component {
                 showModal ? (
                     <Modal>
                         <h1>will you adopt {name}?</h1>
+                        <div className="buttons">
                         <a href="https://bit.ly/pet-adopt">Yes</a>
                         <button onClick={this.toggelModal}>No</button>
+                        </div>
                      </Modal>
                 ) : null }
             </div>
